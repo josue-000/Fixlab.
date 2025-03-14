@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixLab - Servicio y Mantenimiento de PCs</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 0; padding: 0; background-color: #ffffff; }
+        header { background: #040a5c; color: rgb(255, 255, 255); padding: 15px; }
+        nav { margin: 10px; }
+        nav a { margin: 10px; text-decoration: none; color: #333; font-weight: bold; }
+        .container { padding: 20px; }
+        .services, .contact, .details { background: rgb(136, 145, 192); margin: 20px auto; padding: 20px; border-radius: 5px; max-width: 600px; cursor: pointer; }
+        .details { display: none; }
+        .services ul li { list-style: none; padding: 10px; cursor: pointer; transition: background 0.3s, color 0.3s; }
+        .services ul li:hover { background: rgb(135, 147, 201); color: #5544c5; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FixLab</h1>
+        <p>Servicio y Mantenimiento de PCs</p>
+    </header>
+    <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="container">
+        <section id="servicios" class="services">
+            <h1><u>NUESTROS SERVICIOS</u></h1>
+            <ul>
+                <li onclick="mostrarDetalles('Limpieza y mantenimiento preventivo')"><h2>Limpieza y mantenimiento preventivo</h2></li>
+                <li onclick="mostrarDetalles('Optimización del sistema')"><h2>Optimización del sistema </h2></li>
+                <li onclick="mostrarDetalles('Instalación de Sistemas Operativos y Creación de Unidades Bootables')"><h2>Instalación de Sistemas Operativos y Creación de Unidades Bootables</h2></li>
+                <li onclick="mostrarDetalles('Actualización de drivers')"><h2>Actualización de drivers</h2></li>
+                <li onclick="mostrarDetalles('Instalación de software')"><h2>Instalación de software</h2></li>
+            </ul>
+        </section>
+        
+        <section id="detalle-servicio" class="details">
+            <h2 id="titulo-servicio"></h2>
+            <p id="descripcion-servicio"></p>
+        </section>
+    </div>
+
+    <script>
+        function mostrarDetalles(servicio) {
+            const detalles = {
+                "Limpieza y mantenimiento preventivo": `
+                    <br><hr><b>Limpieza de polvo en los componentes internos (ventiladores, disipadores, fuente de poder).<br><br><img src="https://th.bing.com/th/id/R.7955e01965838f1cc4fb44c11f14b094?rik=5e9EFu4KclYV9A&pid=ImgRaw&r=0" width="200" height="100">   
+                    <hr>Cambio de pasta térmica en procesadores.<br> <br><img src="https://th.bing.com/th/id/OIP.4sxTrR123uuveq8Y3zMdSgHaEK?rs=1&pid=ImgDetMain" width="200" height="100"> 
+                    <hr>Organización y manejo de cables para mejor ventilación.<br><br>
+                    <img src="https://th.bing.com/th/id/OIP.c9LaDoupM8O-uherAsVfowHaEc?rs=1&pid=ImgDetMain" width="200" height="100">
+                    <hr>    
+                    <br>
+                `,
+                "Optimización del sistema": `
+                    <br><hr><b>Eliminación de virus y malware.<br><br> <img src="https://th.bing.com/th/id/OIP.a8MO51radUcGsnvXBpjtuwHaD3?rs=1&pid=ImgDetMain" width="200" height="100">
+                    <hr>Optimización del sistema operativo (eliminación de archivos basura, ajustes de rendimiento).<br><br><img src="https://th.bing.com/th/id/R.6ec46b12d8e9c579ed3494cbfbeed85c?rik=ipomg6IZIKr15w&pid=ImgRaw&r=0" width="200" height="100">
+                    <hr>Optimización del sistema para mejorar el rendimiento.<br><br><img src="https://th.bing.com/th/id/OIP.cyPkck5q9a8ZNoirtafXHAHaEQ?rs=1&pid=ImgDetMain" width="200" height="100">
+                    <hr>
+                `,
+                "Instalación de Sistemas Operativos y Creación de Unidades Bootables": `
+                    <br><hr><b>Instalación de Windows, Linux o sistemas personalizados según las necesidades del usuario.<br><br><img src="https://th.bing.com/th/id/R.8fee1ef5b8b4a3895bc2ac1e4ed398f0?rik=CKvunQD42SXk6Q&pid=ImgRaw&r=0" width="200" height="100">
+                    <hr>Creación de USB booteables con sistemas operativos y herramientas de diagnóstico.<br><br><img src="https://th.bing.com/th/id/OIP.e25ighK9cxInc7rqtkUzbQHaEK?rs=1&pid=ImgDetMain" width="200" height="100"><hr>
+                    <br>
+                `,
+                "Actualización de drivers": `
+                    <br><hr><b>Actualizamos controladores para garantizar <strong>compatibilidad y estabilidad</strong> del sistema.<br><br><img src="https://th.bing.com/th/id/OIP.u3a_AxugN_Q8U3Zl038vzAHaEK?rs=1&pid=ImgDetMain" width="200" height="100">
+                    <hr>Instalación de drivers faltantes.<br><br><img src="https://www.softzone.es/app/uploads-softzone.es/2020/05/Mejores-programas-para-instalar-actualizar-copiar-y-borrar-drivers-1.jpg" width="200" height="100">
+                    <hr>Optimización de rendimiento con drivers actualizados.<br><br><img src="https://articles-img.sftcdn.net/t_articles/auto-mapping-folder/sites/2/2021/10/3.jpg" width="200" height="100"><hr>
+                `,
+                "Instalación de software": `
+                    <br><hr><b>Instalamos y configuramos suites de oficina como Microsoft Office, LibreOffice, o Google Workspace.<br><br><img src="https://th.bing.com/th/id/OIP.Dmi5KEQ0pH2D6NS9Iyzs5AHaEK?rs=1&pid=ImgDetMain" width="200" height="100">
+                    <hr>Instalamos navegadores y los personalizamos con extensiones útiles.<br><br><img src="https://th.bing.com/th/id/OIP.oqr9VInh9jIasklfYLCjBAHaEK?rs=1&pid=ImgDetMain" width="200" height="100">
+                    <hr>Configuramos aplicaciones de comunicación como Skype, Zoom o Microsoft Teams.<br><br><img src="https://th.bing.com/th/id/OIP.loMpU_8Q1aiIKhq7zHQ4AQHaDq?rs=1&pid=ImgDetMain" width="200" height="100">
+                    <hr>Actualizamos y configuramos programas existentes.<br><br><img src="https://th.bing.com/th/id/R.bc739f75672d15dd6d588fe323c686a0?rik=owXU0xjJQ4bEoQ&pid=ImgRaw&r=0" width="200" height="100"><hr></b>
+                `
+            };
+
+            document.getElementById('titulo-servicio').innerText = servicio;
+            document.getElementById('descripcion-servicio').innerHTML = detalles[servicio];
+            document.getElementById('detalle-servicio').style.display = 'block';
+
+            // Hacer scroll hacia la sección de detalles
+            document.getElementById('detalle-servicio').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div style="text-align: center; padding: 20px; background-color: #c4bbbb;">
+            <p><strong>Contáctanos</strong></p>
+            <p>Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos al <a href="https://wa.me/93905667">WhatsApp</a>. Estamos aquí para ayudarte con todas tus necesidades de software y mantenimiento de equipos.</p>
+            <p><strong>Teléfono:</strong> +504 9390-5667</p>
+            <p><strong>Correo electrónico:</strong> <a href="mailto:josueqp88@gmail.com">josueqp88@gmail.com</a></p>
+            <p>&copy; 2025 FixLab. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
